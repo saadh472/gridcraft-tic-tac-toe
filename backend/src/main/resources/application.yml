@@ -1,0 +1,29 @@
+server:
+  address: ${GRIDCRAFT_HOST:127.0.0.1}
+  port: ${GRIDCRAFT_PORT:8095}
+  servlet:
+    session:
+      timeout: 2h
+      cookie:
+        name: GRIDCRAFT_SESSION
+        http-only: true
+        same-site: lax
+        secure: ${GRIDCRAFT_SECURE_COOKIE:false}
+spring:
+  application:
+    name: gridcraft
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+      accept-float-as-int: false
+    mapper:
+      allow-coercion-of-scalars: false
+gridcraft:
+  database: ${GRIDCRAFT_DATABASE:./data/gridcraft.sqlite}
+  username: ${GRIDCRAFT_USERNAME:player}
+  password: ${GRIDCRAFT_PASSWORD:DemoPass123!}
+logging:
+  level:
+    root: WARN
+    com.gridcraft: INFO
+
